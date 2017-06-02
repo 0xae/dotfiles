@@ -112,7 +112,34 @@ if ! shopt -oq posix; then
   fi
 fi
 
+PATH="/usr/local/jdk1.8.0_91/bin/:$PATH"
+PATH="android-sdk/platform-tools/:$PATH"
+PATH="~/Development/Infraestructure/android-sdk/tools/:$PATH"
+PATH="~/Development/Infraestructure/apache-ant-1.9.5/bin/:$PATH"
+PATH="~/Development/Infraestructure/apache-maven-3.3.3/bin/:$PATH"
+PATH="/home/ayrton/Development/Infraestructure/bin/:$PATH"
+
+ANDROID_HOME="/home/ayrton/Apps/android-sdk"
+MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=128M -Djava.security.egd=file:/dev/./urandom"
+DROPBOX_PATH="/home/ayrton/Dropbox"
+
+export PATH
+export ANDROID_HOME
+export MAVEN_OPTS
+export DROPBOX_PATH
+export MYSQL_PASSWORD='no_password'
+export MYSQL_USER='root'
+export JAVA_HOME="/usr/local/jdk1.8.0_91/"
+
+export TRIBUTO_STORAGE='/home/ayrton/tributo-data'
+export TRIBUTO_ENV='testing'
+export TRIBUTO_PG_USER='ayrton'
+export TRIBUTO_PG_PASSWORD=''
+export TRIBUTO_PG_DB='tributo'
+
 #source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+#source /usr/local/lib/python2.7/dist-packages/powerline_status-2.4.dev9999-py2.7.egg/powerline/bindings/bash/powerline.sh
+#source /usr/local/lib/python2.7/dist-packages/powerline_status-2.4.dev9999-py2.7.egg/powerline/bindings/shell/powerline.sh
 alias tmux="tmux -2"
 
 man() {
@@ -125,3 +152,8 @@ man() {
 		LESS_TERMCAP_us=$'\e[1;32m' \
 			man "$@"
 }
+
+#fish
+export SUDO_ASKPASS=/home/ayrton/env/shutils/pass.sh
+export PATH=/opt/lampp/bin/:$PATH
+export PATH="$PATH:/home/ayrton/Google/depot_tools"

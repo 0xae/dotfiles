@@ -9,8 +9,18 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'Valloric/YouCompleteMe'
+
+" Bundle 'Shougo/vimproc'
+" Bundle 'Shougo/unite.vim'
+" Bundle 'm2mdas/phpcomplete-extended'
 
 call vundle#end() 
+
+
 filetype plugin indent on
 
 "
@@ -85,6 +95,13 @@ if has("autocmd")
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+  autocmd Filetype html setlocal ts=4 sw=4 expandtab
+  autocmd Filetype ruby setlocal ts=4 sw=4 expandtab
+  autocmd Filetype css setlocal ts=4 sw=4 expandtab
+  autocmd Filetype php setlocal ts=4 sw=4 expandtab
+  autocmd Filetype javascript setlocal ts=4 sw=4 expandtab
+  autocmd Filetype cpp setlocal ts=4 sw=4 expandtab
+  autocmd Filetype c setlocal ts=4 sw=4 expandtab
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -118,7 +135,7 @@ endif
 "call plug#end()
 
 set background=dark
-colorscheme hybrid
+colorscheme gruvbox
 set hls is
 set ic
 set nowrap
@@ -137,15 +154,19 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-/> :TmuxNavigatePrevious<cr>
 
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'powerlineish'
 
 set foldmethod=manual
 
-set tabstop=8
-set softtabstop=8
+set tabstop=4
+set softtabstop=4
 set expandtab
 set autoindent
 set fileformat=unix
 
+let g:phpqa_codesniffer_autorun = 0
+
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:airline#extensions#tabline#enabled = 1
